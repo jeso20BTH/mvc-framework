@@ -1,0 +1,278 @@
+body {
+    overflow-y: scroll;
+    width: 80%;
+    margin: 8px auto;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+
+main {
+    min-height: 30em;
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    min-height: 5em;
+    text-align: center;
+    background-color: #37276e;
+    color: #ddd;
+    font-weight: bold;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ddd;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #37276e;
+}
+
+input + .slider {
+  background-color: #37276e;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #37276e;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.flex {
+    display: flex;
+
+}
+
+.row {
+    flex-direction: row;
+    width: 100%;
+    padding: 1em 0;
+}
+
+.column {
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.center {
+    justify-content: center;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.end {
+    justify-content: flex-end;
+}
+
+.max-heigth {
+    height: 100%;
+    padding: 0;
+}
+
+div {
+    margin-top: 0;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+input {
+    margin: 0 1em;
+}
+
+p {
+    margin: auto 1em;
+}
+
+.message {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+nav {
+    height: 5em;
+    background-color: #37276e;
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    background-color: #5e4e95;
+    font-weight: bold;
+    color: #ddd;
+    text-align: right;
+    padding: 1em 1.5em 0.2em;
+    border-right: 1px solid #ccc;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #513b9a;
+}
+
+.round-top-right{
+    border-radius: 25% 0 0 0;
+}
+
+.no-border {
+    border: none;
+}
+
+.button {
+    color: #ddd;
+    background-color: #37276e;
+    background-image: linear-gradient(#37276e, #0039d0);
+    border: 1px solid #0029c0;
+    text-decoration: none;
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.4rem;
+    padding: 0.4rem 1rem;
+    text-align: center;
+    border-radius: 0.2rem;
+    line-height: 1.4;
+}
+
+.button:hover {
+    background-color: #0029c0;
+    background-image: none;
+}
+
+.button:active {
+    background-color: #0029c0;
+    background-image: none;
+    box-shadow: inset 0 2px 4px #0019b0;
+}
+
+.dice {
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    margin: 1em;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    margin: 0.3em;
+}
+
+.no-spacing-h {
+    padding: 0;
+    margin: 0;
+}
+
+table {
+    margin: 2em;
+    padding: 1em;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0.2em 1em;
+    width: 250px;
+    border: 1px solid black;
+}
+
+.border-top {
+    border-top: 2px solid black;
+}
+
+.border-bottom {
+    border-bottom: 2px solid black;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+.italic {
+    font-style: italic;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+input[type='checkbox']:checked {
+    background-color: #0039d0;
+}
+
+input[type='text'],
+select {
+    padding: 0.4em 0.2em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.input-text {
+    font-size: 1.5em;
+    font-weight: bold;
+}

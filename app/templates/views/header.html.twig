@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <meta charset="utf-8">
+    <title>Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" href="<?= url("/favicon.ico") ?>"> -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="flex row end max-heigth">
+            <div class="flex column end">
+                <a class="round-top-right" href="{{ path('index') }}">Home</a>
+            </div>
+            <div class="flex column end">
+                <a href="{{ path('twentyone') }}">Game 21</a>
+            </div>
+            <div class="flex column end">
+                <a class="no-border" href="{{ path('yatzy') }}">Yatzy</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>

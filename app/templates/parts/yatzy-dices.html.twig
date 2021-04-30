@@ -1,0 +1,13 @@
+<div class="flex column between">{% for dice in graphic %}
+    <div class="flex row center no-spacing-h">
+        <div class="flex column dice {{ (dice|length == 1) ? 'center' : 'between' }}">
+            {% for row in dice %}
+                <div class="flex row {{ row["spacing"]}} no-spacing-h">
+                    {% for _ in 1..row["amount"] %}
+                        <div class="dot"></div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

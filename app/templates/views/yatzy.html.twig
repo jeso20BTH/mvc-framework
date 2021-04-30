@@ -1,0 +1,30 @@
+<h1>{{ header }}</h1>
+
+{% if type in ["menu", null, "add"] %}
+    {% include 'parts/yatzy-menu.html.twig' %}
+{% elseif type == "roll" %}
+    <h2>{{ players[playerCounter].name }} turn</h2>
+    <div class="flex row center">
+        <div class="flex column center">
+            {% include 'parts/yatzy-scoreboard.html.twig' %}
+        </div>
+        {% include 'parts/yatzy-dices-checkbox.html.twig' %}
+    </div>
+{% elseif type == "place" %}
+    <div class="flex row center">
+        <div class="flex column center">
+            {% include 'parts/yatzy-scoreboard-place.html.twig' %}
+        </div>
+        {% include 'parts/yatzy-dices.html.twig' %}
+    </div>
+{% elseif type == "summary" %}
+    <p class="message">{{ message }}</p>
+    <div class="flex row center">
+        {% include 'parts/yatzy-scoreboard.html.twig' %}
+    </div>
+    <div class="flex row center">
+        <form class="" method="post">
+            <input class="button" type="submit" name="action" value="Menu">
+        </form>
+    </div>
+{% endif %}

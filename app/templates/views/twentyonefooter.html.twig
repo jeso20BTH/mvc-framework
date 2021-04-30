@@ -1,0 +1,16 @@
+</main>
+<footer>
+    <div class="flex row between">
+        {% if playerMoney %}
+            <p>Players money: {{ playerMoney }}₿</p>
+        {% endif %}
+        {% if currentBet %}
+            <p>Current bet: {{ currentBet }}₿</p>
+        {% endif %}
+        {% if computerMoney %}
+            <p>Computers money: {{ computerMoney }}₿</p>
+        {% endif %}
+    </div>
+</footer>
+</body>
+</html>

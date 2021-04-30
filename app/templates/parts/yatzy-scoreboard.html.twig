@@ -1,0 +1,54 @@
+<table>
+    <tr class="border-bottom bold">
+        <th>Combination</th>
+        {% for player in players %}
+            <th>{{ player.name }}</th>
+        {% endfor %}
+    </tr>
+    {% for combination in combinations.upper %}
+        <tr>
+            <td>{{combination}}</td>
+            {% for player in players %}
+                <td>{{ combination in player.combinations|keys ? player.combinations[combination] : null }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    <tr class="border-top bold">
+        <td>Score</td>
+        {% for player in players %}
+            <td>{{ "upper_score" in player.combinations|keys ? player.combinations.upper_score : null }}</td>
+        {% endfor %}
+    </tr>
+    <tr class="bold italic">
+        <td>Bonus</td>
+        {% for player in players %}
+            <td>{{ "bonus" in player.combinations|keys ? player.combinations.bonus : null }}</td>
+        {% endfor %}
+    </tr>
+    <tr class="border-bottom bold">
+        <td>Sum</td>
+        {% for player in players %}
+            <td>{{ "upper_sum" in player.combinations|keys ? player.combinations.upper_sum : null }}</td>
+        {% endfor %}
+    </tr>
+    {% for combination in combinations.lower %}
+        <tr>
+            <td>{{combination}}</td>
+            {% for player in players %}
+                <td>{{ combination in player.combinations|keys ? player.combinations[combination] : null }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    <tr class="border-top bold">
+        <td>Score</td>
+        {% for player in players %}
+            <td>{{ "lower_score" in player.combinations|keys ? player.combinations.lower_score : null }}</td>
+        {% endfor %}
+    </tr>
+    <tr class="bolder">
+        <td>Total</td>
+        {% for player in players %}
+            <td>{{ "total_sum" in player.combinations|keys ? player.combinations.total_sum : null }}</td>
+        {% endfor %}
+    </tr>
+</table>

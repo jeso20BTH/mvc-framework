@@ -1,0 +1,70 @@
+<h1>{{ header }}</h1>
+
+{% if type == "menu" or type == null %}
+    {% if playerVictories + computerVictories != 0 %}
+        <h2>Statistics</h2>
+        <p>Games played: {{ playerVictories + computerVictories }}</p>
+        <p>Player: {{ playerVictories }} - Computer: {{ computerVictories }}</p>
+    {% endif %}
+
+    <h2>New game</h2>
+
+    <form class="" method="post">
+        <h3>Dices</h3>
+        <div class="flex row center">
+            <p>1</p>
+            <label class="switch">
+              <input type="checkbox" name="dices" value="2">
+              <span class="slider round"></span>
+            </label>
+            <p>2</p>
+        </div>
+        <div class="flex row center">
+            <p>Place your bet: </p>
+            <input type="number" id="bet" name="bet" min="0" max="<?= ceil($playerMoney / 2) ?>">
+        </div>
+
+        <div class="flex row center">
+            <input class="button" type="submit" name="action" value="Start game">
+            <input class="button" type="submit" name="action" value="Clear data">
+        </div>
+
+    </form>
+{% elseif type == "play" %}
+    <h2>Players turn</h2>
+    <p>Player: {{ playerSum }}</p>
+    <div class="flex row center">
+        {% for dice in graphic %}
+            <div class="flex column dice {{ (dice|length == 1) ? 'center' : 'between' }}">
+                {% for row in dice %}
+                    <div class="flex row {{ row["spacing"]}} no-spacing-h">
+                        {% for _ in 1..row["amount"] %}
+                            <div class="dot"></div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <form class="" method="post">
+        <div class="flex row center">
+            <input class="button" type="submit" name="action" value="Roll">
+            <input class="button" type="submit" name="action" value="Stop">
+        </div>
+
+    </form>
+{% elseif type == "end" %}
+    <p class="message">{{ message }}</p>
+    <div class="flex row center">
+        <p>Player: {{ playerSum }}</p>
+        {% if computerSum != 0 %}
+            <p>Computer: {{ computerSum }}</p>
+        {% endif %}
+    </div>
+
+    <div class="flex row center">
+        <form class="" method="post">
+            <input class="button" type="submit" name="action" value="Menu">
+        </form>
+    </div>
+{% endif %}

@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace App\Game;
 
-use function Mos\Functions\{
-    destroySession,
-    renderView,
-    renderTwigView,
-    url
-};
-
 /**
  * Class ComputerLogic.
  */

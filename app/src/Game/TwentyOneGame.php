@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 namespace App\Game;
 
-use function Mos\Functions\{
-    destroySession,
-    renderView,
-    renderTwigView,
-    url
-};
-
 /**
  * Class TO.
  */
@@ -183,7 +176,6 @@ class TwentyOneGame
         } elseif ($action == "Clear data") {
             $this->clearData();
         } elseif ($action == "Roll") {
-            var_dump($this->roller);
             $this->roll($this->roller);
         } elseif ($action == "Stop") {
             $this->roller = "computer";

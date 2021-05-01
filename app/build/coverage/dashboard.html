@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/style.css" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="src/Controller/GameController.php.html#12">App\Controller\GameController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/HelloWorldController.php.html#9">App\Controller\HelloWorldController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Kernel.php.html#10">App\Kernel</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="src/Kernel.php.html#10">App\Kernel</a></td><td class="text-right">42</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="src/Controller/GameController.php.html#16"><abbr title="App\Controller\GameController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/GameController.php.html#24"><abbr title="App\Controller\GameController::greeting">greeting</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/GameController.php.html#44"><abbr title="App\Controller\GameController::twentyOne">twentyOne</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/GameController.php.html#79"><abbr title="App\Controller\GameController::twentyOnePost">twentyOnePost</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/GameController.php.html#109"><abbr title="App\Controller\GameController::yatzy">yatzy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/GameController.php.html#134"><abbr title="App\Controller\GameController::yatzyPost">yatzyPost</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/HelloWorldController.php.html#11"><abbr title="App\Controller\HelloWorldController::helloMessage">helloMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/HelloWorldController.php.html#18"><abbr title="App\Controller\HelloWorldController::helloMessageView">helloMessageView</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/HelloWorldController.php.html#28"><abbr title="App\Controller\HelloWorldController::hello">hello</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Controller/HelloWorldController.php.html#38"><abbr title="App\Controller\HelloWorldController::helloWithArgument">helloWithArgument</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Kernel.php.html#14"><abbr title="App\Kernel::configureContainer">configureContainer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="src/Kernel.php.html#27"><abbr title="App\Kernel::configureRoutes">configureRoutes</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="src/Kernel.php.html#14"><abbr title="App\Kernel::configureContainer">configureContainer</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="src/Kernel.php.html#27"><abbr title="App\Kernel::configureRoutes">configureRoutes</abbr></a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.6</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.9</a> with <a href="https://xdebug.org/">Xdebug 2.8.1</a> and <a href="https://phpunit.de/">PHPUnit 9.5.4</a> at Sat May 1 14:48:27 CEST 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js" type="text/javascript"></script>
+  <script src="_js/d3.min.js" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,0,0,0,0,0,0,0,0,1,8], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([12,0,0,0,0,0,0,0,0,0,1,67], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,6,"<a href=\"src\/Controller\/GameController.php.html#12\">App\\Controller\\GameController<\/a>"],[0,4,"<a href=\"src\/Controller\/HelloWorldController.php.html#9\">App\\Controller\\HelloWorldController<\/a>"],[98.57142857142858,68,"<a href=\"src\/Game\/Computer.php.html#10\">App\\Game\\Computer<\/a>"],[100,32,"<a href=\"src\/Game\/ComputerLogic.php.html#10\">App\\Game\\ComputerLogic<\/a>"],[100,4,"<a href=\"src\/Game\/Dice.php.html#10\">App\\Game\\Dice<\/a>"],[100,18,"<a href=\"src\/Game\/DiceHand.php.html#10\">App\\Game\\DiceHand<\/a>"],[100,8,"<a href=\"src\/Game\/GraphicalDice.php.html#10\">App\\Game\\GraphicalDice<\/a>"],[100,16,"<a href=\"src\/Game\/Player.php.html#10\">App\\Game\\Player<\/a>"],[100,40,"<a href=\"src\/Game\/TwentyOneGame.php.html#10\">App\\Game\\TwentyOneGame<\/a>"],[100,59,"<a href=\"src\/Game\/YatzyGame.php.html#10\">App\\Game\\YatzyGame<\/a>"],[100,9,"<a href=\"src\/Game\/YatzyPointChecker.php.html#10\">App\\Game\\YatzyPointChecker<\/a>"],[0,6,"<a href=\"src\/Kernel.php.html#10\">App\\Kernel<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"src\/Controller\/GameController.php.html#16\">App\\Controller\\GameController::__construct<\/a>"],[0,1,"<a href=\"src\/Controller\/GameController.php.html#24\">App\\Controller\\GameController::greeting<\/a>"],[0,1,"<a href=\"src\/Controller\/GameController.php.html#44\">App\\Controller\\GameController::twentyOne<\/a>"],[0,1,"<a href=\"src\/Controller\/GameController.php.html#79\">App\\Controller\\GameController::twentyOnePost<\/a>"],[0,1,"<a href=\"src\/Controller\/GameController.php.html#109\">App\\Controller\\GameController::yatzy<\/a>"],[0,1,"<a href=\"src\/Controller\/GameController.php.html#134\">App\\Controller\\GameController::yatzyPost<\/a>"],[0,1,"<a href=\"src\/Controller\/HelloWorldController.php.html#11\">App\\Controller\\HelloWorldController::helloMessage<\/a>"],[0,1,"<a href=\"src\/Controller\/HelloWorldController.php.html#18\">App\\Controller\\HelloWorldController::helloMessageView<\/a>"],[0,1,"<a href=\"src\/Controller\/HelloWorldController.php.html#28\">App\\Controller\\HelloWorldController::hello<\/a>"],[0,1,"<a href=\"src\/Controller\/HelloWorldController.php.html#38\">App\\Controller\\HelloWorldController::helloWithArgument<\/a>"],[100,21,"<a href=\"src\/Game\/Computer.php.html#78\">App\\Game\\Computer::keepLogic<\/a>"],[100,7,"<a href=\"src\/Game\/Computer.php.html#163\">App\\Game\\Computer::getRolls<\/a>"],[100,30,"<a href=\"src\/Game\/Computer.php.html#185\">App\\Game\\Computer::place<\/a>"],[91.30434782608695,10,"<a href=\"src\/Game\/Computer.php.html#275\">App\\Game\\Computer::placeLogic<\/a>"],[100,16,"<a href=\"src\/Game\/ComputerLogic.php.html#12\">App\\Game\\ComputerLogic::straight<\/a>"],[100,8,"<a href=\"src\/Game\/ComputerLogic.php.html#55\">App\\Game\\ComputerLogic::minTwoPair<\/a>"],[100,4,"<a href=\"src\/Game\/ComputerLogic.php.html#78\">App\\Game\\ComputerLogic::pair<\/a>"],[100,4,"<a href=\"src\/Game\/ComputerLogic.php.html#95\">App\\Game\\ComputerLogic::oneNumber<\/a>"],[100,1,"<a href=\"src\/Game\/Dice.php.html#15\">App\\Game\\Dice::__construct<\/a>"],[100,1,"<a href=\"src\/Game\/Dice.php.html#20\">App\\Game\\Dice::roll<\/a>"],[100,1,"<a href=\"src\/Game\/Dice.php.html#27\">App\\Game\\Dice::getLastRoll<\/a>"],[100,1,"<a href=\"src\/Game\/Dice.php.html#32\">App\\Game\\Dice::setLastRoll<\/a>"],[100,2,"<a href=\"src\/Game\/DiceHand.php.html#17\">App\\Game\\DiceHand::__construct<\/a>"],[100,2,"<a href=\"src\/Game\/DiceHand.php.html#25\">App\\Game\\DiceHand::roll<\/a>"],[100,4,"<a href=\"src\/Game\/DiceHand.php.html#36\">App\\Game\\DiceHand::rollSpecific<\/a>"],[100,2,"<a href=\"src\/Game\/DiceHand.php.html#50\">App\\Game\\DiceHand::getLastRoll<\/a>"],[100,3,"<a href=\"src\/Game\/DiceHand.php.html#62\">App\\Game\\DiceHand::getLastRollArray<\/a>"],[100,1,"<a href=\"src\/Game\/DiceHand.php.html#76\">App\\Game\\DiceHand::getDiceSum<\/a>"],[100,3,"<a href=\"src\/Game\/DiceHand.php.html#81\">App\\Game\\DiceHand::getGraphicalRoll<\/a>"],[100,1,"<a href=\"src\/Game\/DiceHand.php.html#94\">App\\Game\\DiceHand::addDice<\/a>"],[100,8,"<a href=\"src\/Game\/GraphicalDice.php.html#12\">App\\Game\\GraphicalDice::grapicalLastRoll<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#18\">App\\Game\\Player::__construct<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#25\">App\\Game\\Player::setDicesToRoll<\/a>"],[100,3,"<a href=\"src\/Game\/Player.php.html#30\">App\\Game\\Player::getDicesToRoll<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#42\">App\\Game\\Player::dicesToRoll<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#47\">App\\Game\\Player::rollSpecific<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#52\">App\\Game\\Player::getLastRoll<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#57\">App\\Game\\Player::getGraphicalRoll<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#62\">App\\Game\\Player::setSum<\/a>"],[100,2,"<a href=\"src\/Game\/Player.php.html#67\">App\\Game\\Player::setScore<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#74\">App\\Game\\Player::getCombinations<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#79\">App\\Game\\Player::presentPlayer<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#87\">App\\Game\\Player::getType<\/a>"],[100,1,"<a href=\"src\/Game\/Player.php.html#92\">App\\Game\\Player::setDiceHand<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#25\">App\\Game\\TwentyOneGame::__construct<\/a>"],[100,7,"<a href=\"src\/Game\/TwentyOneGame.php.html#38\">App\\Game\\TwentyOneGame::endRoll<\/a>"],[100,5,"<a href=\"src\/Game\/TwentyOneGame.php.html#62\">App\\Game\\TwentyOneGame::endGame<\/a>"],[100,8,"<a href=\"src\/Game\/TwentyOneGame.php.html#87\">App\\Game\\TwentyOneGame::roll<\/a>"],[100,2,"<a href=\"src\/Game\/TwentyOneGame.php.html#124\">App\\Game\\TwentyOneGame::start<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#145\">App\\Game\\TwentyOneGame::getType<\/a>"],[100,2,"<a href=\"src\/Game\/TwentyOneGame.php.html#150\">App\\Game\\TwentyOneGame::getSum<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#158\">App\\Game\\TwentyOneGame::getLastRoll<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#163\">App\\Game\\TwentyOneGame::getStandings<\/a>"],[100,6,"<a href=\"src\/Game\/TwentyOneGame.php.html#168\">App\\Game\\TwentyOneGame::postController<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#190\">App\\Game\\TwentyOneGame::clearData<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#202\">App\\Game\\TwentyOneGame::getLastGraphicRoll<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#207\">App\\Game\\TwentyOneGame::renderGame<\/a>"],[100,2,"<a href=\"src\/Game\/TwentyOneGame.php.html#230\">App\\Game\\TwentyOneGame::setSum<\/a>"],[100,1,"<a href=\"src\/Game\/TwentyOneGame.php.html#239\">App\\Game\\TwentyOneGame::setDiceHand<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#43\">App\\Game\\YatzyGame::__construct<\/a>"],[100,4,"<a href=\"src\/Game\/YatzyGame.php.html#49\">App\\Game\\YatzyGame::addPlayer<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#62\">App\\Game\\YatzyGame::startTurn<\/a>"],[100,4,"<a href=\"src\/Game\/YatzyGame.php.html#70\">App\\Game\\YatzyGame::roll<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#90\">App\\Game\\YatzyGame::computerBetweenRolls<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#99\">App\\Game\\YatzyGame::setDicesToRoll<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#104\">App\\Game\\YatzyGame::nextPlayer<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#112\">App\\Game\\YatzyGame::getPlayers<\/a>"],[100,2,"<a href=\"src\/Game\/YatzyGame.php.html#117\">App\\Game\\YatzyGame::endOfRoll<\/a>"],[100,22,"<a href=\"src\/Game\/YatzyGame.php.html#132\">App\\Game\\YatzyGame::scoreHandler<\/a>"],[100,5,"<a href=\"src\/Game\/YatzyGame.php.html#209\">App\\Game\\YatzyGame::setSums<\/a>"],[100,4,"<a href=\"src\/Game\/YatzyGame.php.html#237\">App\\Game\\YatzyGame::endTurn<\/a>"],[100,7,"<a href=\"src\/Game\/YatzyGame.php.html#264\">App\\Game\\YatzyGame::postController<\/a>"],[100,2,"<a href=\"src\/Game\/YatzyGame.php.html#307\">App\\Game\\YatzyGame::getLastGraphicRoll<\/a>"],[100,2,"<a href=\"src\/Game\/YatzyGame.php.html#315\">App\\Game\\YatzyGame::presentPlayers<\/a>"],[100,1,"<a href=\"src\/Game\/YatzyGame.php.html#325\">App\\Game\\YatzyGame::renderGame<\/a>"],[100,2,"<a href=\"src\/Game\/YatzyPointChecker.php.html#12\">App\\Game\\YatzyPointChecker::upper<\/a>"],[100,4,"<a href=\"src\/Game\/YatzyPointChecker.php.html#20\">App\\Game\\YatzyPointChecker::match<\/a>"],[100,3,"<a href=\"src\/Game\/YatzyPointChecker.php.html#32\">App\\Game\\YatzyPointChecker::straight<\/a>"],[0,3,"<a href=\"src\/Kernel.php.html#14\">App\\Kernel::configureContainer<\/a>"],[0,3,"<a href=\"src\/Kernel.php.html#27\">App\\Kernel::configureRoutes<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

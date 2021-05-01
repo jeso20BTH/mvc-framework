@@ -1,11 +1,5 @@
 phpcpd 6.0.3 by Sebastian Bergmann.
 
-Found 1 clones with 24 duplicated lines in 1 files:
+No clones found.
 
-  - C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Controller\GameController.php:52-76 (24 lines)
-    C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Controller\GameController.php:86-110
-
-1.49% duplicated lines out of 1615 total lines of code.
-Average size of duplication is 24 lines, largest clone has 24 of lines
-
-Time: 00:00.026, Memory: 4.00 MB
+Time: 00:00.023, Memory: 4.00 MB

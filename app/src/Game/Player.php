@@ -2,17 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Jeso20\Game;
-
-use function Mos\Functions\{
-    destroySession,
-    renderView,
-    renderTwigView,
-    url
-};
+namespace App\Game;
 
 /**
- * Class TO.
+ * Class Player.
  */
 class Player
 {

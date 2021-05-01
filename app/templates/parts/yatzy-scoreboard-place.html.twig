@@ -12,11 +12,11 @@
                 <td>
                     {% if loop.index0 == playerCounter %}
                         {% if combination in player.combinations|keys %}
-                            {{ player.combinations.value }}
+                            {{ player.combinations[combination] }}
                         {% else %}
                             <form method="post">
                                 <input class="checkbox" type="submit" name="action" value="Place">
-                                <input type="hidden" name="placement" value="<?= $value?>">
+                                <input type="hidden" name="placement" value="{{ combination }}">
                             </form>
                         {% endif %}
                     {% else %}
@@ -51,11 +51,11 @@
                 <td>
                     {% if loop.index0 == playerCounter %}
                         {% if combination in player.combinations|keys %}
-                            {{ player.combinations.value }}
+                            {{ player.combinations[combination] }}
                         {% else %}
                             <form method="post">
                                 <input class="checkbox" type="submit" name="action" value="Place">
-                                <input type="hidden" name="placement" value="<?= $value?>">
+                                <input type="hidden" name="placement" value="{{ combination }}">
                             </form>
                         {% endif %}
                     {% else %}
@@ -74,7 +74,7 @@
     <tr class="bolder">
         <td>Total</td>
         {% for player in players %}
-            <td>{{ "total_sum" in player.combinations|keys ? player.combinations.total_sum : null }}</td>
+            <td>{{ "total_score" in player.combinations|keys ? player.combinations.total_score : null }}</td>
         {% endfor %}
     </tr>
 </table>

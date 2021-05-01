@@ -5,19 +5,18 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-use Jeso20\Game\TwentyOneGame;
-use Jeso20\Game\YatzyGame;
+use App\Game\TwentyOneGame;
+use App\Game\YatzyGame;
 
 class GameController extends AbstractController
 {
     private object $session;
 
-    public function __construct()
+    public function __construct(SessionInterface $session)
     {
-        // $this->session = new Session();
-        // $this->session->start();
+        $this->session = $session;
     }
 
     /**
@@ -25,6 +24,10 @@ class GameController extends AbstractController
     */
     public function greeting(): Response
     {
+        $this->session->clear();
+        var_dump($this->session->get("Yatzy"));
+        var_dump($this->session->get("TwentyOne"));
+
         return $this->render('standard.html.twig', [
             'header' => "Welcome!",
             'message' => 'This is my page!'
@@ -41,14 +44,13 @@ class GameController extends AbstractController
     */
     public function twentyOne(): Response
     {
-        var_dump($this->session);
+        // var_dump($this->session);
+        var_dump($this->session->get("TwentyOne"));
         $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
 
 
         $data = $callable->renderGame();
         $this->session->set("TwentyOne", $callable);
-
-        var_dump($this->session);
 
         return $this->render('twentyone.html.twig', [
             'title' => $data["title"] ?? null,
@@ -77,29 +79,12 @@ class GameController extends AbstractController
     */
     public function twentyOnePost(): Response
     {
-        // $header = $header ?? null;
-        // $message = $message ?? null;
-        // $playerVictories = $standings["player"] ?? null;
-        // $computerVictories = $standings["computer"] ?? null;
-        // $type = $type ?? null;
-        // $playerSum = $playerSum ?? 0;
-        // $computerSum = $computerSum ?? 0;
-        // $lastRoll = $lastRoll ?? null;
-        // $roller = $roller ?? null;
-        // $playerMoney = $playerMoney ?? 0;
-        // $computerMoney = $computerMoney ?? 0;
-        // $currentBet = $currentBet ?? null;
-        // $message = $message ?? null;
-        // $graphic = $graphic ?? null;
-
         $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
 
 
         $data = $callable->postController();
 
         $this->session->set("TwentyOne", $callable);
-
-        var_dump($_SESSION);
 
         return $this->render('twentyone.html.twig', [
             'title' => $data["title"] ?? null,
@@ -124,10 +109,13 @@ class GameController extends AbstractController
     */
     public function yatzy(): Response
     {
-        $callable = $_SESSION["Yatzy"] ?? new YatzyGame();
-        $_SESSION["Yatzy"] = $callable;
+        var_dump($this->session->get("Yatzy"));
+        $callable = $this->session->get("Yatzy") ?? new YatzyGame();
 
         $data = $callable->renderGame();
+        $this->session->set("Yatzy", $callable);
+
+        var_dump($data);
 
         return $this->render('yatzy.html.twig', [
             'header' => $data["header"] ?? null,
@@ -146,10 +134,11 @@ class GameController extends AbstractController
     */
     public function yatzyPost(): Response
     {
-        $callable = $_SESSION["Yatzy"] ?? new YatzyGame();
-        $_SESSION["Yatzy"] = $callable;
+        $callable = $this->session->get("Yatzy") ?? new YatzyGame();
+        $session["Yatzy"] = $callable;
 
         $data = $callable->postController();
+        $this->session->set("Yatzy", $callable);
 
         return $this->render('yatzy.html.twig', [
             'header' => $data["header"] ?? null,

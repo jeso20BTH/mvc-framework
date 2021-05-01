@@ -2,17 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Jeso20\Game;
+namespace App\Game;
 
-use function Mos\Functions\{
-    destroySession,
-    renderView,
-    renderTwigView,
-    url
-};
 
 /**
- * Class TO.
+ * Class YatzyGame.
  */
 class YatzyGame
 {

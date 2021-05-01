@@ -48,7 +48,7 @@
     <tr class="bolder">
         <td>Total</td>
         {% for player in players %}
-            <td>{{ "total_sum" in player.combinations|keys ? player.combinations.total_sum : null }}</td>
+            <td>{{ "total_score" in player.combinations|keys ? player.combinations.total_score : null }}</td>
         {% endfor %}
     </tr>
 </table>

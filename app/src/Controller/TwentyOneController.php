@@ -7,9 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Game\TwentyOneGame;
-use App\Game\YatzyGame;
 
-class GameController extends AbstractController
+class TwentyOneController extends AbstractController
 {
     private object $session;
 
@@ -195,7 +194,7 @@ class GameController extends AbstractController
 
         $this->session->set("TwentyOne", $callable);
 
-        return $this->redirectToRoute('twentyone_game',);
+        return $this->redirectToRoute('twentyone_game');
     }
 
     /**
@@ -211,8 +210,8 @@ class GameController extends AbstractController
 
         $callable->roll();
 
-        if ($callable->getSum("player") >=21) {
-            return $this->redirectToRoute('twentyone_end',);
+        if ($callable->getSum("player") >= 21) {
+            return $this->redirectToRoute('twentyone_end');
         }
 
         $this->session->set("TwentyOne", $callable);
@@ -256,7 +255,7 @@ class GameController extends AbstractController
 
         $this->session->set("TwentyOne", $callable);
 
-        return $this->redirectToRoute('twentyone_turn',);
+        return $this->redirectToRoute('twentyone_turn');
     }
 
     /**

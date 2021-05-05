@@ -1,14 +1,18 @@
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\Computer.php:10	The class Computer has an overall complexity of 68 which is very high. The configured complexity threshold is 50.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\Computer.php:78	The method keepLogic() has a Cyclomatic Complexity of 21. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\Computer.php:78	The method keepLogic() has an NPath complexity of 8652. The configured NPath complexity threshold is 200.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\Computer.php:185	The method place() has a Cyclomatic Complexity of 30. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\Computer.php:275	The method placeLogic() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\ComputerLogic.php:12	The method straight() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\YatzyGame.php:10	The class YatzyGame has an overall complexity of 59 which is very high. The configured complexity threshold is 50.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Game\YatzyGame.php:132	The method scoreHandler() has a Cyclomatic Complexity of 22. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Kernel.php:14	Avoid assigning values to variables in if clauses and the like (line '22', column '27').
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\src\Kernel.php:27	Avoid assigning values to variables in if clauses and the like (line '34', column '27').
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\tests\Game\GameComputerLogicTest.php:13	The class GameComputerLogicTest has 11 public methods. Consider refactoring GameComputerLogicTest to keep number of public methods under 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\tests\Game\GameTwentyOneGameTest.php:13	The class GameTwentyOneGameTest has 15 public methods. Consider refactoring GameTwentyOneGameTest to keep number of public methods under 10.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\tests\Game\GameYatzyGameTest.php:13	The class GameYatzyGameTest has 26 non-getter- and setter-methods. Consider refactoring GameYatzyGameTest to keep number of methods under 25.
-C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\framework\app\tests\Game\GameYatzyGameTest.php:13	The class GameYatzyGameTest has 26 public methods. Consider refactoring GameYatzyGameTest to keep number of public methods under 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Controller\TwentyOneController.php:11	The class TwentyOneController has 14 public methods. Consider refactoring TwentyOneController to keep number of public methods under 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Controller\YatzyController.php:11	The class YatzyController has 12 public methods. Consider refactoring YatzyController to keep number of public methods under 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\Computer.php:10	The class Computer has an overall complexity of 68 which is very high. The configured complexity threshold is 50.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\Computer.php:78	The method keepLogic() has a Cyclomatic Complexity of 21. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\Computer.php:78	The method keepLogic() has an NPath complexity of 8652. The configured NPath complexity threshold is 200.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\Computer.php:185	The method place() has a Cyclomatic Complexity of 30. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\Computer.php:275	The method placeLogic() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\ComputerLogic.php:12	The method straight() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\TwentyOneGame.php:26	Avoid unused private fields such as '$highscoreHandler'.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\TwentyOneGame.php:27	Avoid unused private fields such as '$session'.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\YatzyGame.php:10	The class YatzyGame has an overall complexity of 64 which is very high. The configured complexity threshold is 50.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Game\YatzyGame.php:135	The method scoreHandler() has a Cyclomatic Complexity of 22. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Kernel.php:14	Avoid assigning values to variables in if clauses and the like (line '22', column '27').
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\src\Kernel.php:27	Avoid assigning values to variables in if clauses and the like (line '34', column '27').
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\tests\Game\GameComputerLogicTest.php:13	The class GameComputerLogicTest has 11 public methods. Consider refactoring GameComputerLogicTest to keep number of public methods under 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\tests\Game\GameTwentyOneGameTest.php:13	The class GameTwentyOneGameTest has 14 public methods. Consider refactoring GameTwentyOneGameTest to keep number of public methods under 10.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\tests\Game\GameYatzyGameTest.php:13	The class GameYatzyGameTest has 26 non-getter- and setter-methods. Consider refactoring GameYatzyGameTest to keep number of methods under 25.
+C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\orm\app\tests\Game\GameYatzyGameTest.php:13	The class GameYatzyGameTest has 26 public methods. Consider refactoring GameYatzyGameTest to keep number of public methods under 10.

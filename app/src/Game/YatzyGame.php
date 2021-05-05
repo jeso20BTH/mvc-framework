@@ -264,7 +264,8 @@ class YatzyGame
         $this->startTurn();
     }
 
-    public function getDicesToRoll(array $dices) {
+    public function getDicesToRoll(array $dices)
+    {
         return $this->players[$this->playerCounter]->getDicesToRoll($dices);
     }
 
@@ -329,7 +330,8 @@ class YatzyGame
         return $pla;
     }
 
-    public function setHighscores(): array {
+    public function setHighscores(): array
+    {
         $scores = [];
 
         foreach ($this->players as $player) {

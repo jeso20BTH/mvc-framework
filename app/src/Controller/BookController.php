@@ -31,11 +31,11 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/{id}", name="viewBook")
+     * @Route("/book/{bookId}", name="viewBook")
      */
-    public function viewBook(int $id): Response
+    public function viewBook(int $bookId): Response
     {
-        $book = $this->repository->find($id);
+        $book = $this->repository->find($bookId);
         return $this->render('book/view-book.html.twig', [
             'book' => $book,
             'active' => 'books'

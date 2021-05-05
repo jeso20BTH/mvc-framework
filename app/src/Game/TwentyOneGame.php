@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Game;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 /**
  * Class TO.
  */
@@ -22,6 +24,7 @@ class TwentyOneGame
     private ?int $currentBet = 0;
     private ?string $message = null;
     private object $highscoreHandler;
+    private object $session;
 
 
 
@@ -37,13 +40,17 @@ class TwentyOneGame
             "computer" => 0
         );
         $this->type = "menu";
+
+        // $this->session = $session;
     }
 
-    public function setPlayer(string $name) {
+    public function setPlayer(string $name)
+    {
         $this->playerName = $name;
     }
 
-    public function clearBet() {
+    public function clearBet()
+    {
         $this->currentBet = null;
     }
 
@@ -106,13 +113,15 @@ class TwentyOneGame
         $this->currentBet = null;
     }
 
-    public function changeRoller(string $newRoller) {
+    public function changeRoller(string $newRoller)
+    {
         $this->roller = $newRoller;
     }
 
-    public function roll(): void
+    public function roll(string $types = null): void
     {
-        $type = $this->roller;
+        $type = ($types) ? $types : $this->roller;
+
         $this->diceHand->roll();
 
         if ($type == "player") {
@@ -126,7 +135,6 @@ class TwentyOneGame
             }
             return;
         }
-
         $this->computerSum += $this->diceHand->getDiceSum();
 
         $result = $this->endRoll("computer");
@@ -144,7 +152,7 @@ class TwentyOneGame
             $this->endGame("computer");
             return;
         }
-        $this->roll();
+        $this->roll($types);
         return;
     }
 
@@ -199,14 +207,14 @@ class TwentyOneGame
             if ($this->playerName === null) {
                 $this->playerName = $_POST["name"];
             }
-            $this->start($dices);
         } elseif ($action == "Clear data") {
             $this->clearData();
         } elseif ($action == "Roll") {
-            $this->roll($this->roller);
+            echo $this->roller;
+            $this->roll();
         } elseif ($action == "Stop") {
             $this->roller = "computer";
-            $this->roll($this->roller);
+            $this->roll();
         } elseif ($action == "Menu") {
             $this->type = "menu";
         }
@@ -216,8 +224,7 @@ class TwentyOneGame
 
     public function clearData(): void
     {
-        var_dump("Clear");
-        unset($_SESSION["standings"]);
+        // $this->session->clear();
         $this->standings = array(
             "player" => 0,
             "computer" => 0

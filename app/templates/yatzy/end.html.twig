@@ -1,0 +1,14 @@
+{% include 'views/header.html.twig' %}
+
+<p class="message">{{ message }}</p>
+<div class="flex row center">
+    {% include 'parts/yatzy-scoreboard.html.twig' %}
+</div>
+<div class="flex row center">
+    <form class="" action="{{ path('addScore') }}" method="post">
+        <input class="button" type="submit" name="action" value="Menu">
+        <input type="hidden" name="game" value="yatzy">
+    </form>
+</div>
+
+{% include 'views/footer.html.twig' %}

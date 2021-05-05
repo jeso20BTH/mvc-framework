@@ -1,0 +1,23 @@
+{% include 'views/header.html.twig' %}
+
+<h2>Add player</h2>
+<form class="" action="{{ path('yatzy_add_post') }}" method="post">
+    <div class="flex row center">
+        <div class="flex column center">
+            <p class="input-text">Name</p>
+            <input type="text" name="name" value="">
+        </div>
+        <div class="flex column center">
+            <p class="input-text">Type</p>
+            <select class="" name="type">
+                <option value="Player">Player</option>
+                <option value="Computer">Computer</option>
+            </select>
+        </div>
+    </div>
+    <div class="flex row center">
+        <input class="button" type="submit" name="action" value="Add player">
+    </div>
+</form>
+
+{% include 'views/footer.html.twig' %}

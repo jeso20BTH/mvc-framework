@@ -1,0 +1,11 @@
+{% include 'views/header.html.twig' %}
+
+<h2>{{ players[playerCounter].name }} turn</h2>
+<div class="flex row center">
+    <div class="flex column center">
+        {% include 'parts/yatzy-scoreboard.html.twig' %}
+    </div>
+    {% include 'parts/yatzy-dices-checkbox.html.twig' %}
+</div>
+
+{% include 'views/footer.html.twig' %}

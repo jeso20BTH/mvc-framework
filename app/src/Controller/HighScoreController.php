@@ -45,7 +45,14 @@ class HighScoreController extends AbstractController
      */
     public function addScore(): Response
     {
-        $this->addHighScore($_POST["name"], intval($_POST["score"]), $_POST["game"]);
+        if ($_POST["game"] == 'twentyone') {
+            $this->addHighScore($_POST["name"], intval($_POST["score"]), $_POST["game"]);
+        } elseif ($_POST["game"] == 'yatzy') {
+            foreach ($this->session->get("highscores") as $player) {
+                $this->addHighScore($player["name"], $player["score"], $_POST["game"]);
+            }
+        }
+
 
         $this->session->clear();
 

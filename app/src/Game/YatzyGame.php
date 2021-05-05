@@ -118,7 +118,10 @@ class YatzyGame
     {
         $this->setDicesToRoll([]);
 
-        $this->type = "place";
+        if ($this->players[$this->playerCounter]->getType() == "Player") {
+            $this->type = "place";
+        }
+
 
         if ($this->players[$this->playerCounter]->getType() == "Computer") {
             $placement = $this->players[$this->playerCounter]->placeLogic();
@@ -240,7 +243,7 @@ class YatzyGame
 
         $this->playerCounter++;
 
-        if ($this->playerCounter >= count($this->players) - 1) {
+        if ($this->playerCounter > count($this->players) - 1) {
             $this->turnCounter ++;
         }
 
@@ -259,6 +262,10 @@ class YatzyGame
 
 
         $this->startTurn();
+    }
+
+    public function getDicesToRoll(array $dices) {
+        return $this->players[$this->playerCounter]->getDicesToRoll($dices);
     }
 
     public function postController(): array
@@ -320,6 +327,23 @@ class YatzyGame
             $pla[] = $player->presentPlayer();
         }
         return $pla;
+    }
+
+    public function setHighscores(): array {
+        $scores = [];
+
+        foreach ($this->players as $player) {
+            $scores[] = [
+                'name' => $player->getName(),
+                'score' => $player->getCombinations()["total_score"]
+            ];
+        }
+        return $scores;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
     }
     //
     public function renderGame(): array

@@ -9,6 +9,7 @@
     {% if type != "add" and players|length == 0 %}
         <div class="flex row center">
             <input class="button" type="submit" name="action" value="New player">
+            <a class="button" href="{{ path('high_score', {'game': 'yatzy'}) }}">High score</a>
         </div>
     {% endif %}
     {% if type == "add" %}
@@ -34,6 +35,7 @@
         <div class="flex row center">
             <input class="button" type="submit" name="action" value="Start game">
             <input class="button" type="submit" name="action" value="New player">
+            <a class="button" href="{{ path('high_score', {'game': 'yatzy'}) }}">High score</a>
         </div>
     {% endif %}
 </form>

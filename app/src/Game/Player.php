@@ -89,6 +89,11 @@ class Player
         return $this->type;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function setDiceHand(DiceHand $diceHand): void
     {
         $this->diceHand = $diceHand;

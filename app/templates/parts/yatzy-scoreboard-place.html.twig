@@ -14,7 +14,7 @@
                         {% if combination in player.combinations|keys %}
                             {{ player.combinations[combination] }}
                         {% else %}
-                            <form method="post">
+                            <form method="post" action="{{ path('yatzy_place_post') }}">
                                 <input class="checkbox" type="submit" name="action" value="Place">
                                 <input type="hidden" name="placement" value="{{ combination }}">
                             </form>

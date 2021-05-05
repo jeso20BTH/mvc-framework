@@ -1,0 +1,39 @@
+{% include 'views/header.html.twig' %}
+
+<div class="flex row start">
+    <form action="{{ path('high_score', {'game': 'yatzy'}) }}" method="post">
+        <input class="button small-button" type="submit" name="action" value="Highscore">
+    </form>
+</div>
+<h1>{{ header }}</h1>
+<h2>New game</h2>
+{% if players %}
+    <h3>Players</h3>
+    {% for player in players %}
+        <p>{{ player["name"] }}</p>
+    {% endfor %}
+{% endif %}
+
+<div class="flex row center">
+    <a class="button" href="{{ path('yatzy_add' )}}">New player</a>
+
+    {% if players|length > 0 and players != null %}
+        <form class="" action="{{ path('yatzy_start_post') }}"  method="post">
+            <input class="button" type="submit" name="action" value="Start game">
+        </form>
+    {% endif %}
+
+
+{% if type == "summary" %}
+    <p class="message">{{ message }}</p>
+    <div class="flex row center">
+        {% include 'parts/yatzy-scoreboard.html.twig' %}
+    </div>
+    <div class="flex row center">
+        <form class="" method="post">
+            <input class="button" type="submit" name="action" value="Menu">
+        </form>
+    </div>
+{% endif %}
+
+{% include 'views/footer.html.twig' %}

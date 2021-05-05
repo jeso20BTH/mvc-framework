@@ -153,7 +153,6 @@ p {
 nav {
     height: 5em;
     background-color: #37276e;
-    border-bottom: 1px solid #ddd;
 }
 
 nav a {
@@ -162,7 +161,7 @@ nav a {
     color: #ddd;
     text-align: right;
     padding: 1em 1.5em 0.2em;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #ddd;
     text-decoration: none;
 }
 
@@ -334,4 +333,29 @@ select {
 
 label {
     margin-top: 1em;
+}
+
+.sub-nav {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.sub-nav a {
+    text-decoration: none;
+    padding: 0.2em 1em;
+    background-color: #37276E;
+    color: #ddd;
+}
+
+.sub-nav a:first-of-type {
+    border-radius: 0 0 0 0.5em;
+    border-right: 1px solid #ddd;
+}
+
+.sub-nav a:hover {
+    background-color: #513b9a;
+}
+
+.active {
+    background-color: #5e4e95 !important;
 }

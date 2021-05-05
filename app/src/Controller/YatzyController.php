@@ -28,7 +28,8 @@ class YatzyController extends AbstractController
             "message" => $data["message"] ?? null,
             "title" => $data["title"] ?? null,
             "graphic" => $data["graphic"] ?? null,
-            "playerCounter" => $data["playerCounter"] ?? null
+            "playerCounter" => $data["playerCounter"] ?? null,
+            'active' => 'yatzy'
         ];
     }
 
@@ -54,8 +55,10 @@ class YatzyController extends AbstractController
     {
         $callable = $this->session->get("Yatzy") ?? new YatzyGame();
 
-        $data = $callable->renderGame();
+        $res = $callable->renderGame();
         $this->session->set("Yatzy", $callable);
+
+        $data = $this->dataToRender($res);
 
         return $this->render('yatzy/add.html.twig', $data);
     }
@@ -67,10 +70,10 @@ class YatzyController extends AbstractController
     {
         $callable = $this->session->get("Yatzy") ?? new YatzyGame();
 
-        $data = $callable->renderGame();
+        $res = $callable->renderGame();
         $this->session->set("Yatzy", $callable);
 
-        var_dump($callable->getType());
+        $data = $this->dataToRender($res);
 
         if ($callable->getType() == "summary") {
             return $this->redirectToRoute('yatzy_end');
@@ -86,10 +89,10 @@ class YatzyController extends AbstractController
     {
         $callable = $this->session->get("Yatzy") ?? new YatzyGame();
 
-        $data = $callable->renderGame();
+        $res = $callable->renderGame();
         $this->session->set("Yatzy", $callable);
 
-        var_dump($callable->getType());
+        $data = $this->dataToRender($res);
 
         if ($callable->getType() == "summary") {
             return $this->redirectToRoute('yatzy_end');

@@ -36,7 +36,8 @@ class HighScoreController extends AbstractController
         return $this->render('high_score/index.html.twig', [
             'header' => ($game == 'yatzy') ? $game . ' highscore!' : '21' . ' highscore!',
             'scores' => $scores,
-            'game' => $game
+            'game' => $game,
+            'active' => 'highscore'
         ]);
     }
 

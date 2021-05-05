@@ -36,7 +36,8 @@ class GameController extends AbstractController
             'computerMoney' => $data["computerMoney"] ?? 0,
             'currentBet' => $data["currentBet"] ?? 0,
             'message' => $data["message"] ?? null,
-            'graphic' => $data["graphic"] ?? null
+            'graphic' => $data["graphic"] ?? null,
+            'active' => 'twentyone'
         ];
     }
 
@@ -49,7 +50,8 @@ class GameController extends AbstractController
 
         return $this->render('standard.html.twig', [
             'header' => "Welcome!",
-            'message' => 'This is my page!'
+            'message' => 'This is my page!',
+            'active' => 'index'
         ]);
     }
 

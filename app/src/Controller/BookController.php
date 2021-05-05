@@ -26,6 +26,7 @@ class BookController extends AbstractController
         return $this->render('book/index.html.twig', [
             'header' => 'Books',
             'books' => $books,
+            'active' => 'books'
         ]);
     }
 
@@ -37,6 +38,7 @@ class BookController extends AbstractController
         $book = $this->repository->find($id);
         return $this->render('book/view-book.html.twig', [
             'book' => $book,
+            'active' => 'books'
         ]);
     }
 
@@ -48,6 +50,7 @@ class BookController extends AbstractController
         return $this->render('book/add-book.html.twig', [
             'header' => 'Add book',
             'message' => 'Fill form to add book!',
+            'active' => 'books'
         ]);
     }
 
@@ -61,9 +64,6 @@ class BookController extends AbstractController
         return $this->redirectToRoute('allBooks');
     }
 
-    /**
-     * @Route("/product", name="create_product")
-     */
     public function createBook(string $title, string $isbn, string $author, string $image): void
     {
         // you can fetch the EntityManager via $this->getDoctrine()

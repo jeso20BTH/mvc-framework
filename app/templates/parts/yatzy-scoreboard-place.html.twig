@@ -15,7 +15,7 @@
                             {{ player.combinations[combination] }}
                         {% else %}
                             <form method="post" action="{{ path('yatzy_place_post') }}">
-                                <input class="checkbox" type="submit" name="action" value="Place">
+                                <input class="button small-button" type="submit" name="action" value="Place">
                                 <input type="hidden" name="placement" value="{{ combination }}">
                             </form>
                         {% endif %}
@@ -54,7 +54,7 @@
                             {{ player.combinations[combination] }}
                         {% else %}
                             <form method="post">
-                                <input class="checkbox" type="submit" name="action" value="Place">
+                                <input class="button small-button" type="submit" name="action" value="Place">
                                 <input type="hidden" name="placement" value="{{ combination }}">
                             </form>
                         {% endif %}

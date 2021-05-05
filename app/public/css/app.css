@@ -161,12 +161,15 @@ nav a {
     color: #ddd;
     text-align: right;
     padding: 1em 1.5em 0.2em;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     text-decoration: none;
 }
 
 nav a:hover {
     background-color: #513b9a;
+
+    color: #EEE;
 }
 
 .round-top-right{
@@ -179,9 +182,9 @@ nav a:hover {
 
 .button {
     color: #ddd;
-    background-color: #37276e;
-    background-image: linear-gradient(#37276e, #0039d0);
+    background-color: #0029c0;
     border: 1px solid #0029c0;
+    box-shadow: 2px 2px 2px black;
     text-decoration: none;
     box-sizing: border-box;
     display: inline-block;
@@ -201,7 +204,7 @@ nav a:hover {
 }
 
 .button:hover {
-    background-color: #0029c0;
+    background-color: #513b9a;
     background-image: none;
 }
 
@@ -343,7 +346,7 @@ label {
 .sub-nav a {
     text-decoration: none;
     padding: 0.2em 1em;
-    background-color: #37276E;
+    background-color: #513b9a;
     color: #ddd;
 }
 
@@ -353,9 +356,10 @@ label {
 }
 
 .sub-nav a:hover {
-    background-color: #513b9a;
+    background-color: #5e4e95;
+    color: #EEE;
 }
 
 .active {
-    background-color: #5e4e95 !important;
+    background-color: #37276e !important;
 }

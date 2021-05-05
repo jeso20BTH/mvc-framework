@@ -13,19 +13,19 @@
     <nav>
         <div class="flex row end max-heigth">
             <div class="flex column end">
-                <a class="round-top-right" href="{{ path('index') }}">Home</a>
+                <a class="round-top-right {{ (active=='index') ? 'active' : '' }}" href="{{ path('index') }}">Home</a>
             </div>
             <div class="flex column end">
-                <a href="{{ path('twentyone') }}">Game 21</a>
+                <a class="{{ (active=='twentyone') ? 'active' : '' }}" href="{{ path('twentyone') }}">Game 21</a>
             </div>
             <div class="flex column end">
-                <a href="{{ path('yatzy') }}">Yatzy</a>
+                <a class="{{ (active=='yatzy') ? 'active' : '' }}" href="{{ path('yatzy') }}">Yatzy</a>
             </div>
             <div class="flex column end">
-                <a href="{{ path('high_score', {'game': 'twentyone'}) }}">Highscore</a>
+                <a class="{{ (active=='highscore') ? 'active' : '' }}" href="{{ path('high_score', {'game': 'twentyone'}) }}">Highscore</a>
             </div>
             <div class="flex column end">
-                <a class="no-border" href="{{ path('allBooks') }}">Books</a>
+                <a class="{{ (active=='books') ? 'active' : '' }}" href="{{ path('allBooks') }}">Books</a>
             </div>
         </div>
     </nav>

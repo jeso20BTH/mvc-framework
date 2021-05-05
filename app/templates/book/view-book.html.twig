@@ -1,0 +1,9 @@
+{% include 'views/header.html.twig' %}
+
+<a class="button small-button float-left left-margin top-margin2" href="{{ path('allBooks') }}">&#129044; All books</a>
+<h1 class="clear">{{ book.title }}</h1>
+<p>{{ book.author }}</p>
+<img src="{{ book.image }}" alt="{{ book.title }}">
+<p class="lighter-text">ISBN: {{ book.isbn }}</p>
+
+{% include 'views/footer.html.twig' %}

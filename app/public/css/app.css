@@ -104,6 +104,10 @@ input:checked + .slider:before {
     padding: 0;
 }
 
+.start {
+    justify-content: flex-start;
+}
+
 .center {
     justify-content: center;
 }
@@ -114,6 +118,10 @@ input:checked + .slider:before {
 
 .end {
     justify-content: flex-end;
+}
+
+.align-center {
+    align-items: center;
 }
 
 .max-heigth {
@@ -186,6 +194,13 @@ nav a:hover {
     line-height: 1.4;
 }
 
+.small-button {
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.1rem;
+    line-height: 1;
+}
+
 .button:hover {
     background-color: #0029c0;
     background-image: none;
@@ -220,7 +235,7 @@ nav a:hover {
 }
 
 table {
-    margin: 2em;
+    margin: 0 2em;
     padding: 1em;
     border-collapse: collapse;
 }
@@ -275,4 +290,48 @@ select {
 .input-text {
     font-size: 1.5em;
     font-weight: bold;
+}
+
+.left-margin {
+    margin-left: 2em;
+}
+
+.top-margin1 {
+    margin-top: 1em;
+}
+
+.top-margin2 {
+    margin-top: 2em;
+}
+
+.no-top-margin {
+    margin-top: 0;
+}
+
+.float-left {
+    float: left;
+}
+
+.lighter-text {
+    color: #7d7d7d;
+}
+
+.clear {
+    clear: left;
+}
+
+.max-width-child * {
+    width: 100%;
+}
+
+.width80 {
+    width: 80%;
+}
+
+.width20 {
+    width: 20%;
+}
+
+label {
+    margin-top: 1em;
 }

@@ -1,0 +1,29 @@
+{% include 'views/header.html.twig' %}
+
+<div class="flex row start">
+    <a class="left-margin button" href="{{ path('addBook') }}">Add book</a>
+</div>
+
+<h1 class="no-top-margin">{{ header }}</h1>
+<div class="flex row center">
+    <table>
+        <tr>
+            <th>Book</th>
+            <th>Author</th>
+            <th></th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                    <a class="button small-button" href="{{ path("viewBook", {'id': book.id}) }}">View more</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+{% include 'views/footer.html.twig' %}

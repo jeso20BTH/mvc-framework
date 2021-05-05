@@ -1,0 +1,21 @@
+{% include 'views/header.html.twig' %}
+
+<a class="button small-button float-left left-margin top-margin2" href="{{ path('allBooks') }}">&#129044; All books</a>
+<h1 class="clear">{{ header }}</h1>
+<p>{{ message }}</p>
+<div class="flex row center">
+    <form class="flex column center align-center width80 max-width-child" method="post">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Title">
+        <label for="author">Author</label>
+        <input type="text" name="author" placeholder="Author">
+        <label for="isbn">ISBN</label>
+        <input type="text" name="isbn" placeholder="ISBN">
+        <label for="image">Image</label>
+        <input type="text" name="image" placeholder="Image">
+        <input class="button top-margin1 width20" type="submit" name="action" value="Add">
+    </form>
+</div>
+
+
+{% include 'views/footer.html.twig' %}

@@ -11,28 +11,40 @@ class TwentyOneGame
 {
     private int $playerSum = 0;
     private int $computerSum = 0;
+    private ?string $playerName = null;
     private object $diceHand;
     private array $standings;
     private string $type;
     private string $roller;
+    private int $maxPlayerMoney = 10;
     private int $playerMoney = 10;
     private int $computerMoney = 100;
     private ?int $currentBet = 0;
     private ?string $message = null;
+    private object $highscoreHandler;
 
 
 
     public function __construct()
     {
         $this->diceHand = new DiceHand(2, 6);
+        $this->roller = "player";
 
         $this->playerMoney = 10;
         $this->computerMoney = 100;
-        $this->standings = $_SESSION["standings"] ?? array(
+        $this->standings = array(
             "player" => 0,
             "computer" => 0
         );
         $this->type = "menu";
+    }
+
+    public function setPlayer(string $name) {
+        $this->playerName = $name;
+    }
+
+    public function clearBet() {
+        $this->currentBet = null;
     }
 
     public function endRoll(string $type): string
@@ -69,6 +81,11 @@ class TwentyOneGame
             if ($this->message == null) {
                 $this->message = "Congratulation you won!!!";
             }
+
+            if ($this->playerMoney > $this->maxPlayerMoney) {
+                $this->maxPlayerMoney = $this->playerMoney;
+            }
+
             return;
         } elseif ($winner == "computer") {
             $this->standings["computer"] += 1;
@@ -80,12 +97,22 @@ class TwentyOneGame
             }
         }
 
+        if ($this->playerMoney <= 0) {
+            $this->type = "game over";
+            $this->message = "Computer won! Game over";
+        }
+
         $_SESSION["standings"] = $this->standings;
         $this->currentBet = null;
     }
 
-    public function roll(string $type): void
+    public function changeRoller(string $newRoller) {
+        $this->roller = $newRoller;
+    }
+
+    public function roll(): void
     {
+        $type = $this->roller;
         $this->diceHand->roll();
 
         if ($type == "player") {
@@ -117,11 +144,11 @@ class TwentyOneGame
             $this->endGame("computer");
             return;
         }
-        $this->roll("Computer");
+        $this->roll();
         return;
     }
 
-    public function start(int $dices, DiceHand $diceHand = null): void
+    public function start(int $dices, int $bet, DiceHand $diceHand = null): void
     {
         $this->diceHand = new DiceHand($dices, 6);
 
@@ -129,18 +156,15 @@ class TwentyOneGame
             $this->diceHand = $diceHand;
         }
 
-        $this->standings = $_SESSION["standings"] ?? array(
-            "player" => 0,
-            "computer" => 0
-        );
-
         $this->type = "play";
         $this->playerSum = 0;
         $this->computerSum = 0;
+        $this->currentBet = $bet;
 
         $this->roller = "player";
-        $this->roll($this->roller);
     }
+
+
 
     public function getType(): string
     {
@@ -172,6 +196,9 @@ class TwentyOneGame
             $dices = $_POST["dices"] ?? "1";
             $dices = intval($dices);
             $this->currentBet = intval($_POST["bet"]);
+            if ($this->playerName === null) {
+                $this->playerName = $_POST["name"];
+            }
             $this->start($dices);
         } elseif ($action == "Clear data") {
             $this->clearData();
@@ -189,6 +216,7 @@ class TwentyOneGame
 
     public function clearData(): void
     {
+        var_dump("Clear");
         unset($_SESSION["standings"]);
         $this->standings = array(
             "player" => 0,
@@ -207,6 +235,8 @@ class TwentyOneGame
     public function renderGame(): array
     {
         $data = [
+            "playerName" => $this->playerName ?? null,
+            "maxPlayerMoney" => $this->maxPlayerMoney ?? null,
             "header" => "Lets play 21!",
             "standings" => $this->getStandings(),
             "type" => $this->type,

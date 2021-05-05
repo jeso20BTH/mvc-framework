@@ -1,0 +1,25 @@
+{% include 'views/header.html.twig' %}
+
+<div class="flex row start">
+    <a class="button small-button float-left left-margin top-margin2" href="{{ path(game) }}">&#129044; {{ (game == "yatzy") ? game|capitalize : '21' }}</a>
+</div>
+
+<h1 class="no-top-margin">{{ header|capitalize }}</h1>
+<div class="flex row center">
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>Score</th>
+        </tr>
+        {% for score in scores %}
+            <tr>
+                <td>{{ score.name }}</td>
+                <td>{{ score.score }} {{ (game == 'yatzy') ? 'p' : '₿' }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+{% include 'views/footer.html.twig' %}

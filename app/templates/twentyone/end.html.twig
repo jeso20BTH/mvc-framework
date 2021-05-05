@@ -1,0 +1,43 @@
+{% include 'views/header.html.twig' %}
+{% if playerVictories + computerVictories != 0 %}
+    <div class="flex row between">
+        <p>Highest money: {{ maxPlayerMoney }}₿</p>
+        <p>{{playerName}}: {{ playerVictories }} - Computer: {{ computerVictories }}</p>
+    </div>
+{% endif %}
+
+<div class="flex row start">
+    <form method="post" action="{{ path('twentyone_reset') }}">
+        <input class="button small-button" type="submit" name="action" value="Reset">
+    </form>
+</div>
+
+<p class="message">{{ message }}</p>
+<div class="flex row center">
+    <p>Player: {{ playerSum }}</p>
+    {% if computerSum != 0 %}
+        <p>Computer: {{ computerSum }}</p>
+    {% endif %}
+</div>
+
+{% if type == "game over" %}
+    <div class="flex row center">
+        <form class="" action="{{ path('addScore') }}" method="post">
+            <input type="hidden" name="name" value="{{ playerName }}">
+            <input type="hidden" name="score" value="{{maxPlayerMoney}}">
+            <input type="hidden" name="game" value="twentyone">
+            <input class="button" type="submit" name="action" value="Menu">
+        </form>
+    </div>
+{% else %}
+    <div class="flex row center">
+        <form class="" action="{{ path('twentyone_menu') }}" method="post">
+            <input class="button" type="submit" name="action" value="Next round">
+        </form>
+    </div>
+{% endif %}
+
+
+
+
+{% include 'twentyone/twentyonefooter.html.twig' %}

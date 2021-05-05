@@ -10,6 +10,9 @@
     <h2>New game</h2>
 
     <form class="" method="post">
+        {% if not playerName %}
+            <input type="text" name="name" placeholder="Name" required>
+        {% endif %}
         <h3>Dices</h3>
         <div class="flex row center">
             <p>1</p>
@@ -21,12 +24,13 @@
         </div>
         <div class="flex row center">
             <p>Place your bet: </p>
-            <input type="number" id="bet" name="bet" min="0" max="<?= ceil($playerMoney / 2) ?>">
+            <input type="number" id="bet" name="bet" min="0" max="{{ (playerMoney )|round(0, 'ceil') }}">
         </div>
 
         <div class="flex row center">
             <input class="button" type="submit" name="action" value="Start game">
-            <input class="button" type="submit" name="action" value="Clear data">
+            <input class="button" type="submit" name="action" value="Reset">
+            <a class="button" href="{{ path('high_score', {'game': 'twentyone'}) }}">High score</a>
         </div>
 
     </form>
@@ -64,6 +68,22 @@
 
     <div class="flex row center">
         <form class="" method="post">
+            <input class="button" type="submit" name="action" value="Menu">
+        </form>
+    </div>
+{% elseif type == "game over" %}
+    <p class="message">{{ message }}</p>
+    <div class="flex row center">
+        <p>Player: {{ playerSum }}</p>
+        {% if computerSum != 0 %}
+            <p>Computer: {{ computerSum }}</p>
+        {% endif %}
+    </div>
+    <div class="flex row center">
+        <form class="" action="{{ path('addScore') }}" method="post">
+            <input type="hidden" name="name" value="{{ playerName }}">
+            <input type="hidden" name="score" value="{{maxPlayerMoney}}">
+            <input type="hidden" name="game" value="twentyone">
             <input class="button" type="submit" name="action" value="Menu">
         </form>
     </div>

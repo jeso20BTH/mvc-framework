@@ -23,6 +23,7 @@ class GameController extends AbstractController
         return [
             'title' => $data["title"] ?? null,
             'header' => $data["header"] ?? null,
+            'playerName' => $data["playerName"] ?? null,
             'playerVictories' => $data["standings"]["player"] ?? null,
             'computerVictories' => $data["standings"]["computer"] ?? null,
             'type' => $data["type"] ?? null,
@@ -31,6 +32,7 @@ class GameController extends AbstractController
             'lastRoll' => $data["lastRoll"] ?? null,
             'roller' => $data["roller"] ?? null,
             'playerMoney' => $data["playerMoney"] ?? 0,
+            'maxPlayerMoney' => $data["maxPlayerMoney"] ?? null,
             'computerMoney' => $data["computerMoney"] ?? 0,
             'currentBet' => $data["currentBet"] ?? 0,
             'message' => $data["message"] ?? null,
@@ -65,12 +67,194 @@ class GameController extends AbstractController
         $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
 
 
+
         $res = $callable->renderGame();
         $this->session->set("TwentyOne", $callable);
 
         $data = $this->dataToRender($res);
 
-        return $this->render('twentyone.html.twig', $data);
+        return $this->render('twentyone/index.html.twig', $data);
+    }
+
+    /**
+    * @Route(
+    *      "/clear",
+    *      name="twentyone_reset",
+    *      methods={"POST"}
+    * )
+    */
+    public function clear(): Response
+    {
+        $this->session->clear();
+
+        return $this->redirectToRoute('twentyone');
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/turn",
+    *      name="twentyone_turn",
+    *      methods={"GET"}
+    * )
+    */
+    public function turn(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+
+        $res = $callable->renderGame();
+
+        $this->session->set("TwentyOne", $callable);
+
+        $data = $this->dataToRender($res);
+
+        return $this->render('twentyone/turn.html.twig', $data);
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/game",
+    *      name="twentyone_game",
+    *      methods={"GET"}
+    * )
+    */
+    public function game(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+
+        $res = $callable->renderGame();
+
+        $this->session->set("TwentyOne", $callable);
+
+        $data = $this->dataToRender($res);
+
+        return $this->render('twentyone/game.html.twig', $data);
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/end",
+    *      name="twentyone_end",
+    *      methods={"GET"}
+    * )
+    */
+    public function end(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+
+        $res = $callable->renderGame();
+
+        $this->session->set("TwentyOne", $callable);
+
+        $data = $this->dataToRender($res);
+
+        return $this->render('twentyone/end.html.twig', $data);
+    }
+
+
+    /**
+    * @Route(
+    *      "/twentyone/start",
+    *      name="twentyone_start",
+    *      methods={"POST"}
+    * )
+    */
+    public function start(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+        $name = $_POST["name"] ?? null;
+
+        $callable->setPlayer($name);
+
+        $this->session->set("TwentyOne", $callable);
+
+        return $this->redirectToRoute('twentyone_turn');
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/turn",
+    *      name="twentyone_turnsetup",
+    *      methods={"POST"}
+    * )
+    */
+    public function turnSetup(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+        $dices = $_POST["dices"] ?? "1";
+        $dices = intval($dices);
+        $name = $_POST["name"] ?? null;
+
+        $callable->start($dices, intval($_POST["bet"]), $name);
+
+        $this->session->set("TwentyOne", $callable);
+
+        return $this->redirectToRoute('twentyone_game',);
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/roll",
+    *      name="twentyone_roll",
+    *      methods={"POST"}
+    * )
+    */
+    public function roll(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+        $callable->roll();
+
+        if ($callable->getSum("player") >=21) {
+            return $this->redirectToRoute('twentyone_end',);
+        }
+
+        $this->session->set("TwentyOne", $callable);
+
+        return $this->redirectToRoute('twentyone_game');
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/stop",
+    *      name="twentyone_stop",
+    *      methods={"POST"}
+    * )
+    */
+    public function stop(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+        $callable->changeRoller("computer");
+        $callable->roll();
+
+        $this->session->set("TwentyOne", $callable);
+
+        // return new Response("Test");
+
+        return $this->redirectToRoute('twentyone_end');
+    }
+
+    /**
+    * @Route(
+    *      "/twentyone/menu",
+    *      name="twentyone_menu",
+    *      methods={"POST"}
+    * )
+    */
+    public function menu(): Response
+    {
+        $callable = $this->session->get("TwentyOne") ?? new TwentyOneGame();
+
+        $callable->clearBet();
+
+        $this->session->set("TwentyOne", $callable);
+
+        return $this->redirectToRoute('twentyone_turn',);
     }
 
     /**
@@ -92,49 +276,5 @@ class GameController extends AbstractController
         $data = $this->dataToRender($res);
 
         return $this->render('twentyone.html.twig', $data);
-    }
-
-    /**
-     * @Route("/yatzy", name="yatzy", methods={"GET", "HEAD"})
-    */
-    public function yatzy(): Response
-    {
-        $callable = $this->session->get("Yatzy") ?? new YatzyGame();
-
-        $data = $callable->renderGame();
-        $this->session->set("Yatzy", $callable);
-
-        return $this->render('yatzy.html.twig', [
-            'header' => $data["header"] ?? null,
-            "combinations" => $data["combinations"] ?? null,
-            "type" => $data["type"] ?? null,
-            "players" => $data["players"] ?? null,
-            "message" => $data["message"] ?? null,
-            "title" => $data["title"] ?? null,
-            "graphic" => $data["graphic"] ?? null,
-            "playerCounter" => $data["playerCounter"] ?? null
-        ]);
-    }
-
-    /**
-     * @Route("/yatzy", name="yatzypost", methods={"POST"})
-    */
-    public function yatzyPost(): Response
-    {
-        $callable = $this->session->get("Yatzy") ?? new YatzyGame();
-
-        $data = $callable->postController();
-        $this->session->set("Yatzy", $callable);
-
-        return $this->render('yatzy.html.twig', [
-            'header' => $data["header"] ?? null,
-            "combinations" => $data["combinations"] ?? null,
-            "type" => $data["type"] ?? null,
-            "players" => $data["players"] ?? null,
-            "message" => $data["message"] ?? null,
-            "title" => $data["title"] ?? null,
-            "graphic" => $data["graphic"] ?? null,
-            "playerCounter" => $data["playerCounter"] ?? null
-        ]);
     }
 }

@@ -1,0 +1,39 @@
+{% include 'views/header.html.twig' %}
+
+{% if playerVictories + computerVictories != 0 %}
+    <div class="flex row between">
+        <p>Highest money: {{ maxPlayerMoney }}₿</p>
+        <p>{{playerName}}: {{ playerVictories }} - Computer: {{ computerVictories }}</p>
+    </div>
+{% endif %}
+
+<div class="flex row start">
+    <form method="post" action="{{ path('twentyone_reset') }}">
+        <input class="button small-button" type="submit" name="action" value="Reset">
+    </form>
+</div>
+<h2>Players turn</h2>
+<p>Player: {{ playerSum }}</p>
+<div class="flex row center">
+    {% for dice in graphic %}
+        <div class="flex column dice {{ (dice|length == 1) ? 'center' : 'between' }}">
+            {% for row in dice %}
+                <div class="flex row {{ row["spacing"]}} no-spacing-h">
+                    {% for _ in 1..row["amount"] %}
+                        <div class="dot"></div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+<div class="flex row center">
+    <form class="" action="{{ path('twentyone_roll') }}" method="post">
+        <input class="button" type="submit" name="action" value="Roll">
+    </form>
+    <form class="" action="{{ path('twentyone_stop') }}" method="post">
+        <input class="button" type="submit" name="action" value="Stop">
+    </form>
+</div>
+
+{% include 'twentyone/twentyonefooter.html.twig' %}

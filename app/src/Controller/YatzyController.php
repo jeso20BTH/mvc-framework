@@ -107,8 +107,10 @@ class YatzyController extends AbstractController
     {
         $callable = $this->session->get("Yatzy") ?? new YatzyGame();
 
-        $data = $callable->renderGame();
+        $res = $callable->renderGame();
         $this->session->set("Yatzy", $callable);
+
+        $data = $this->dataToRender($res);
 
         $this->session->set("highscores", $callable->setHighscores());
 

@@ -12,15 +12,17 @@
             <th>Author</th>
             <th></th>
         </tr>
-        {% for book in books %}
-            <tr>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
-                <td>
-                    <a class="button small-button" href="{{ path("viewBook", {'id': book.id}) }}">View more</a>
-                </td>
-            </tr>
-        {% endfor %}
+        {% if books %}
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>
+                        <a class="button small-button" href="{{ path("viewBook", {'bookId': book.id}) }}">View more</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
     </table>
 </div>
 

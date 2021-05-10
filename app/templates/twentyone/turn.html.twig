@@ -27,7 +27,7 @@
     </div>
     <div class="flex row center">
         <p>Place your bet: </p>
-        <input type="number" id="bet" name="bet" min="0" max="{{ (playerMoney )|round(0, 'ceil') }}" required>
+        <input type="number" id="bet" name="bet" min="0" max="{{ (playerMoney / 2)|round(0, 'ceil') }}" required>
     </div>
 
     <div class="flex row center">
